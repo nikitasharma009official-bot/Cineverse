@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CineVerse - Movies</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div><a href="index.html">CineVerse</a></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="movies.html">Movies</a></li>
+      <li><a href="details.html?id=interstellar">Details</a></li>
+    </ul>
+    <div>
+      <input type="text" id="searchInput" placeholder="Search movies...">
+      <button id="searchBtn">Search</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>All Movies Collection</h1>
+
+  <div>
+    <div class="movie-card" data-name="avengers"><img src="image/avengers.jpg" width="200"><h3>Avengers</h3><a href="details.html?id=avengers">View Details</a></div>
+    <div class="movie-card" data-name="dark knight"><img src="image/dark knight.jpg" width="200"><h3>Dark Knight</h3><a href="details.html?id=darkknight">View Details</a></div>
+    <div class="movie-card" data-name="deadpool"><img src="image/deadpool.jpg" width="200"><h3>Deadpool</h3><a href="details.html?id=deadpool">View Details</a></div>
+    <div class="movie-card" data-name="godfather"><img src="image/godfather.jpg" width="200"><h3>Godfather</h3><a href="details.html?id=godfather">View Details</a></div>
+    <div class="movie-card" data-name="inception"><img src="image/inception.jpg" width="200"><h3>Inception</h3><a href="details.html?id=inception">View Details</a></div>
+    <div class="movie-card" data-name="interstellar"><img src="image/interstellar.jpg" width="200"><h3>Interstellar</h3><a href="details.html?id=interstellar">View Details</a></div>
+    <div class="movie-card" data-name="joker"><img src="image/joker.jpg" width="200"><h3>Joker</h3><a href="details.html?id=joker">View Details</a></div>
+    <div class="movie-card" data-name="matrix"><img src="image/matrix.jpg" width="200"><h3>Matrix</h3><a href="details.html?id=matrix">View Details</a></div>
+    <div class="movie-card" data-name="parasite"><img src="image/parasite.jpg" width="200"><h3>Parasite</h3><a href="details.html?id=parasite">View Details</a></div>
+    <div class="movie-card" data-name="spiderman"><img src="image/spiderman.jpg" width="200"><h3>Spiderman</h3><a href="details.html?id=spiderman">View Details</a></div>
+    <div class="movie-card" data-name="titanic"><img src="image/titanic.jpg" width="200"><h3>Titanic</h3><a href="details.html?id=titanic">View Details</a></div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div>
+    <div>
+      <h3>CineVerse</h3>
+      <p>Your Ultimate Universe of Movies.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Movies</a></li>
+        <li><a href="details.html?id=interstellar">Top Rated</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <p>Made with ♥ for Movie Lovers | CineVerse © 2026</p>
+</footer>
+
+<script>
+function searchMovies(){
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let cards = document.querySelectorAll('.movie-card');
+  cards.forEach(card => {
+    let name = card.getAttribute('data-name');
+    if(name.includes(input)){
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Input pe type karte hi search
+document.getElementById('searchInput').addEventListener('input', searchMovies);
+document.getElementById('searchBtn').addEventListener('click', searchMovies);
+
+// Home se aaya hua search
+window.addEventListener("load", function(){
+  let params = new URLSearchParams(window.location.search);
+  let searchValue = params.get("search");
+  if(searchValue){
+    document.getElementById('searchInput').value = searchValue;
+    searchMovies();
+  }
+});
+</script>
+
+</body>
+</html>

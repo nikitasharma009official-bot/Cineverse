@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CineVerse - Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div>
+      <a href="index.html">CineVerse</a>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="movies.html">Movies</a></li>
+      <li><a href="details.html?id=interstellar">Details</a></li>
+    </ul>
+    <div>
+      <input type="text" id="homeSearch" placeholder="Search movies...">
+      <button id="homeSearchBtn">Search</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <p>WELCOME TO CINEVERSE</p>
+    <h1>Your Ultimate Universe of Movies</h1>
+    <p>Discover amazing movies, explore different genres, and find your next favorite film.</p>
+    <a href="movies.html">Explore Movies</a>
+  </section>
+
+  <h2>Featured Movies</h2>
+  <div>
+    <div class="movie-card" data-name="interstellar">
+      <img src="image/interstellar.jpg" alt="Interstellar" width="200">
+      <h3>Interstellar</h3>
+      <a href="details.html?id=interstellar">View Details</a>
+    </div>
+    <div class="movie-card" data-name="inception">
+      <img src="image/inception.jpg" alt="Inception" width="200">
+      <h3>Inception</h3>
+      <a href="details.html?id=inception">View Details</a>
+    </div>
+    <div class="movie-card" data-name="dark knight">
+      <img src="image/dark knight.jpg" alt="Dark Knight" width="200">
+      <h3>Dark Knight</h3>
+      <a href="details.html?id=darkknight">View Details</a>
+    </div>
+    <div class="movie-card" data-name="joker">
+      <img src="image/joker.jpg" alt="Joker" width="200">
+      <h3>Joker</h3>
+      <a href="details.html?id=joker">View Details</a>
+    </div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div>
+    <div>
+      <h3>CineVerse</h3>
+      <p>Your Ultimate Universe of Movies.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Movies</a></li>
+        <li><a href="details.html?id=interstellar">Top Rated</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <p>Made with ♥ for Movie Lovers | CineVerse © 2026</p>
+</footer>
+
+<script>
+let searchInput = document.getElementById("homeSearch");
+let searchBtn = document.getElementById("homeSearchBtn");
+
+function goToSearch(){
+  let value = searchInput.value.toLowerCase().trim();
+  if(value !== ""){
+    window.location.href = "movies.html?search=" + value;
+  } else {
+    window.location.href = "movies.html";
+  }
+}
+
+searchBtn.addEventListener("click", goToSearch);
+
+searchInput.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    goToSearch();
+  }
+});
+</script>
+
+</body>
+</html>

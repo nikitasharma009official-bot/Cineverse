@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CineVerse - Details</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div><a href="index.html">CineVerse</a></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="movies.html">Movies</a></li>
+      <li><a href="details.html?id=interstellar">Details</a></li>
+    </ul>
+    <div>
+      <input type="text" id="detailSearch" placeholder="Search movies...">
+      <button id="detailSearchBtn">Search</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="details-container">
+    <div class="details-img">
+      <img id="movieImg" src="image/interstellar.jpg" alt="Movie Poster">
+    </div>
+    <div class="details-info">
+      <h1 id="movieTitle">Interstellar</h1>
+      <p class="meta" id="movieMeta">2014 • Sci-Fi • 2h 49m <span class="rating">⭐ 8.6/10 IMDb</span></p>
+      <p class="desc" id="movieDesc">
+        A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
+      </p>
+      <div class="details-btns">
+        <a href="movies.html" class="back-btn">← Back to Movies</a>
+        <button class="trailer-btn" id="trailerBtn">▶ Watch Trailer</button>
+      </div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div>
+    <div>
+      <h3>CineVerse</h3>
+      <p>Your Ultimate Universe of Movies.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Movies</a></li>
+        <li><a href="details.html?id=interstellar">Top Rated</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <p>Made with ♥ for Movie Lovers | CineVerse © 2026</p>
+</footer>
+
+<script>
+const moviesData = {
+  interstellar: { title: "Interstellar", year: "2014 • Sci-Fi • 2h 49m", rating: "⭐ 8.6/10 IMDb", desc: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. Directed by Christopher Nolan.", img: "image/interstellar.jpg", trailer: "https://www.youtube.com/embed/zSWdZVtXT7E" },
+  inception: { title: "Inception", year: "2010 • Sci-Fi • 2h 28m", rating: "⭐ 8.8/10 IMDb", desc: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea.", img: "image/inception.jpg", trailer: "https://www.youtube.com/embed/YoHD9XEInc0" },
+  joker: { title: "Joker", year: "2019 • Crime • 2h 2m", rating: "⭐ 8.4/10 IMDb", desc: "A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain.", img: "image/joker.jpg", trailer: "https://www.youtube.com/embed/zAGVQLHvwOY" },
+  darkknight: { title: "Dark Knight", year: "2008 • Action • 2h 32m", rating: "⭐ 9.0/10 IMDb", desc: "When the menace known as the Joker wreaks havoc on Gotham, Batman must accept one of the greatest psychological tests.", img: "image/dark knight.jpg", trailer: "https://www.youtube.com/embed/EXeTwQWrcwY" },
+  avengers: { title: "Avengers", year: "2012 • Action • 2h 23m", rating: "⭐ 8.0/10 IMDb", desc: "Earth's mightiest heroes must come together and learn to fight as a team.", img: "image/avengers.jpg", trailer: "https://www.youtube.com/embed/eOrNdBpGMv8" },
+  deadpool: { title: "Deadpool", year: "2016 • Action • 1h 48m", rating: "⭐ 8.0/10 IMDb", desc: "A wisecracking mercenary gets experimented on and becomes immortal but ugly.", img: "image/deadpool.jpg", trailer: "https://www.youtube.com/embed/ONHBaC-pfsk" },
+  godfather: { title: "Godfather", year: "1972 • Crime • 2h 55m", rating: "⭐ 9.2/10 IMDb", desc: "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.", img: "image/godfather.jpg", trailer: "https://www.youtube.com/embed/UaVTIH8mujA" },
+  matrix: { title: "Matrix", year: "1999 • Sci-Fi • 2h 16m", rating: "⭐ 8.7/10 IMDb", desc: "A computer hacker learns about the true nature of his reality.", img: "image/matrix.jpg", trailer: "https://www.youtube.com/embed/vKQi3bBA1y8" },
+  parasite: { title: "Parasite", year: "2019 • Thriller • 2h 12m", rating: "⭐ 8.5/10 IMDb", desc: "Greed and class discrimination threaten the newly formed symbiotic relationship.", img: "image/parasite.jpg", trailer: "https://www.youtube.com/embed/5xH0HfJHsaY" },
+  spiderman: { title: "Spiderman", year: "2021 • Action • 2h 28m", rating: "⭐ 8.2/10 IMDb", desc: "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help.", img: "image/spiderman.jpg", trailer: "https://www.youtube.com/embed/JfVOs4VSpmA" },
+  titanic: { title: "Titanic", year: "1997 • Romance • 3h 14m", rating: "⭐ 7.9/10 IMDb", desc: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious Titanic.", img: "image/titanic.jpg", trailer: "https://www.youtube.com/embed/kVrqfYjkTdQ" }
+};
+
+window.addEventListener("load", function(){
+  let params = new URLSearchParams(window.location.search);
+  let id = params.get("id") || "interstellar";
+  let movie = moviesData[id];
+
+  if(movie){
+    document.getElementById("movieTitle").innerText = movie.title;
+    document.getElementById("movieMeta").innerHTML = `${movie.year} <span class="rating">${movie.rating}</span>`;
+    document.getElementById("movieDesc").innerText = movie.desc;
+    document.getElementById("movieImg").src = movie.img;
+    document.title = "CineVerse - " + movie.title;
+  }
+});
+
+// Trailer button - simple popup
+document.getElementById("trailerBtn").addEventListener("click", function(){
+  let params = new URLSearchParams(window.location.search);
+  let id = params.get("id") || "interstellar";
+  let movie = moviesData[id];
+  if(movie){
+    window.open(movie.trailer, "_blank");
+  }
+});
+
+// Search from details page also
+document.getElementById("detailSearchBtn").addEventListener("click", function(){
+  let val = document.getElementById("detailSearch").value.toLowerCase().trim();
+  window.location.href = "movies.html?search=" + val;
+});
+</script>
+
+</body>
+</html>
